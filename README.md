@@ -25,31 +25,31 @@ This repository implements the full pipeline:
 
 ---
 
-# Project Structure
+## Project Structure
+```
 quantum_variational_classifier/
-
-data/
-    dataset.py *dataset generation and preprocessing*
-
-circuits/
-    encode.py *classical feature encoding*
-    ansatz.py *parameterized quantum circuit*
-
-model/
-    quantum_model.py *circuit execution and measurement*
-
-training/
-    cost.py *loss function*
-    train.py *optimization loop*
-
-evaluation/
-    metrics.py *accuracy calculation*
-
-main.py *runs the full experiment*
-requirements.txt
-README.md
-
-
+│
+├── data/
+│   └── dataset.py          # Dataset generation and preprocessing
+│
+├── circuits/
+│   ├── encode.py           # Classical feature encoding
+│   └── ansatz.py           # Parameterized quantum circuit
+│
+├── model/
+│   └── quantum_model.py    # Circuit execution and measurement
+│
+├── training/
+│   ├── cost.py             # Loss function
+│   └── train.py            # Optimization loop
+│
+├── evaluation/
+│   └── metrics.py          # Accuracy calculation
+│
+├── main.py                 # Runs the full experiment
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
+```
 ---
 
 # Model Architecture
