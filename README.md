@@ -29,23 +29,23 @@ This repository implements the full pipeline:
 quantum_variational_classifier/
 
 data/
-    dataset.py # dataset generation and preprocessing
+    dataset.py *dataset generation and preprocessing*
 
 circuits/
-    encode.py # classical feature encoding
-    ansatz.py # parameterized quantum circuit
+    encode.py *classical feature encoding*
+    ansatz.py *parameterized quantum circuit*
 
 model/
-    quantum_model.py # circuit execution and measurement
+    quantum_model.py *circuit execution and measurement*
 
 training/
-    cost.py # loss function
-    train.py # optimization loop
+    cost.py *loss function*
+    train.py *optimization loop*
 
 evaluation/
-    metrics.py # accuracy calculation
+    metrics.py *accuracy calculation*
 
-main.py # runs the full experiment
+main.py *runs the full experiment*
 requirements.txt
 README.md
 
