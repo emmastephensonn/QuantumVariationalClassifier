@@ -58,11 +58,11 @@ quantum_variational_classifier/
 
 Classical features are encoded using **angle encoding**:
 
-\[
-x_i \rightarrow R_Y(x_i)
-\]
+Each feature `x_i` is mapped to a rotation gate:
 
-Each feature controls a rotation gate applied to a qubit.
+`x_i → RY(x_i)`
+
+Each feature controls a rotation applied to a corresponding qubit.
 
 ---
 
@@ -81,9 +81,7 @@ These parameters are optimized during training to learn the classification bound
 
 The expectation value of the Pauli-Z observable is used as the model output:
 
-\[
-\langle Z \rangle \in [-1,1]
-\]
+`<Z> ∈ [-1, 1]`
 
 Predictions are mapped to class labels:
 prediction >= 0 → class +1
@@ -96,9 +94,7 @@ prediction < 0 → class -1
 
 Training minimizes **Mean Squared Error (MSE)** between predictions and labels:
 
-\[
-L = \frac{1}{N} \sum (y_{pred} - y_{true})^2
-\]
+`L = (1/N) * Σ (y_pred - y_true)^2`
 
 ---
 
