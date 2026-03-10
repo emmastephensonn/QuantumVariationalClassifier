@@ -1,27 +1,25 @@
 import numpy as np
-from qiskit import QuantumCircuit
 
-def variational_layer(params):
+
+def ansatz(qc, params):
     """
-    Encode a 2D classical input vector into a quantum circuit
-    using rotation-based feature mapping.
+    Apply a parameterized variational ansatz to the quantum circuit.
 
-    Each feature is mapped to an Ry rotation on a separate qubit.
+    The ansatz consists of trainable single-qubit rotations
+    followed by entangling CNOT gates.
 
     Parameters
     ----------
-    x : array-like of length 2
-        Input feature vector scaled to [0, π].
-
-    Returns
-    -------
-    QuantumCircuit
-        A 2-qubit circuit with data encoded via Ry rotations
+    qc : QuantumCircuit
+        Quantum circuit to which the ansatz is applied.
+    params : np.ndarray
+        Trainable parameters controlling rotation gates.
     """
-    qc = QuantumCircuit(2)
 
-    qc.ry(params[0], 0)
-    qc.ry(params[1], 1)
-    qc.cx(0,1)
+    n_qubits = qc.num_qubits
 
-    return qc
+    for i in range(n_qubits):
+        qc.ry(params[i], i)
+
+    for i in range(n_qubits - 1):
+        qc.cx(i, i + 1)
