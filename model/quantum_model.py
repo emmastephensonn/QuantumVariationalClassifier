@@ -37,17 +37,20 @@ def quantum_model(x, params):
 
     qc.measure_all()
 
-    job = simulator.run(qc, shots=1024)
+    job = simulator.run(qc, shots=128)
     result = job.result()
 
     counts = result.get_counts()
 
-    expectation = 0
+    zeros = 0
+    ones = 0
 
     for bitstring, count in counts.items():
-        value = 1 if bitstring[-1] == "0" else -1
-        expectation += value * count
+        if bitstring[-1] == "0":
+            zeros += count
+        else:
+            ones += count
 
-    expectation /= 1024
+    expectation = (zeros - ones) / (zeros + ones)
 
     return expectation

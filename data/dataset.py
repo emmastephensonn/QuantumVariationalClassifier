@@ -23,7 +23,7 @@ def load_dataset(test_size=0.2):
         Training and test splits of features and labels.
     """
     #Generate synthetic data, add noise so it is not perfectly clean
-    X, y = make_moons(n_samples=200, noise=0.1)
+    X, y = make_moons(n_samples=80, noise=0.1)
 
     #Scale to 0-pi for rotation angles
     scaler = MinMaxScaler(feature_range=(0, np.pi))
